@@ -6,7 +6,7 @@ import re
 
 def extract_text_from_pdf(pdf_path):
 	with open(pdf_path, 'rb') as file:
-		reader = PyPDF2.PdfFileReader(file)
+		reader = PyPDF2.PdfFilReader(file)
 		text = ''
 		for page_num in range(reader.numPages):
 			text += reader.getPage(page_num).extractText()
@@ -21,7 +21,7 @@ def analyze_text(text):
 	return word_count
 
 #Path to the PDF file
-pdf_path = 'path/to/the/pdf/file.pdf'
+pdf_path = "/mnt/c/Users/Paul Sr/My Drive (paul.tyler.jones@gmail.com)/Career Information/Resumes/Public/GPT Test Copy of 20230509 Paul Tyler Jones.pdf"
 
 #Extracting text from PDF
 text = extract_text_from_pdf(pdf_path)
