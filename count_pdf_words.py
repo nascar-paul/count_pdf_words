@@ -1,20 +1,17 @@
-import PyPDF2
+from pdfminer.high_level import exract_text
 from collections import Counter
 import re
 
 # Function to extract text from PDF
 
 def extract_text_from_pdf(pdf_path):
-	with open(pdf_path, 'rb') as file:
-		reader = PyPDF2.PdfFilReader(file)
-		text = ''
-		for page_num in range(reader.numPages):
-			text += reader.getPage(page_num).extractText()
-		return text
+	text = exract_text(pdf_path)
+	return text
 
 # Function to analyze words and their frequency
 
 def analyze_text(text):
+
 	#Removing punctuation and onverting to lowercase
 	words = re.findall(r'\w+', text.lower())
 	word_count = Counter(words)
