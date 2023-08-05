@@ -1,11 +1,12 @@
-from pdfminer.high_level import exract_text
+from pdfminer.high_level import extract_text
 from collections import Counter
 import re
 
 # Function to extract text from PDF
 
 def extract_text_from_pdf(pdf_path):
-	text = exract_text(pdf_path)
+	text = extract_text(pdf_path)
+	print(text)  #Prints the extracted text here
 	return text
 
 # Function to analyze words and their frequency
@@ -15,6 +16,7 @@ def analyze_text(text):
 	#Removing punctuation and onverting to lowercase
 	words = re.findall(r'\w+', text.lower())
 	word_count = Counter(words)
+	print(words)  #Prints teh words after splitting
 	return word_count
 
 #Path to the PDF file
